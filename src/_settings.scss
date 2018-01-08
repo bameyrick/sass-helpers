@@ -1,0 +1,55 @@
+/*  ---------------------------------------------------
+    Breakpoints
+------------------------------------------------------- */
+
+$mobile: 420px !default;
+$tablet: 768px !default;
+$tablet-landscape: 1024px !default;
+$desktop: 1366px !default;
+$desktop-large: 1560px !default;
+
+/*  ---------------------------------------------------
+    Fluid properites
+------------------------------------------------------- */
+
+$default-fluid-property-clip-low: $mobile !default;
+$default-fluid-property-clip-high: $desktop !default;
+$default-fluid-property-clip-low-vertical: 600px !default;
+$default-fluid-property-clip-high-vertical: 1200px !default;
+
+/*  ---------------------------------------------------
+    Typography
+------------------------------------------------------- */
+$modular-scale-small: $major-second !default;
+$modular-scale-large: $perfect-fourth !default;
+
+$base-font-size: 16px !default;
+// This must be a rem unit
+$font-size: 1rem !default;
+
+/*  ---------------------------------------------------
+    Layout
+------------------------------------------------------- */
+
+$collapse-padding-large: 30px !default;
+$collapse-padding-small: 15px !default;
+
+/*  ---------------------------------------------------
+    Grid
+------------------------------------------------------- */
+
+$col-spacing-large: 30px !default;
+$col-spacing-small: 10px !default;
+
+$col-spacing-large-narrow: 10px !default;
+$col-spacing-small-narrow: 5px !default;
+
+$col-sm-start: $tablet !default;
+$col-md-start: $tablet-landscape !default;
+$col-lg-start: $desktop !default;
+
+$col-clip-low: $default-fluid-property-clip-low !default;
+$col-clip-high: $col-md-start !default;
+
+$col-sizes: 'xs', 'sm', 'md', 'lg';
+$col-breakpoints: '0px', $col-sm-start, $col-md-start, $col-lg-start;

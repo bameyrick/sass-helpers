@@ -1,0 +1,111 @@
+/*
+	Create breakpoint mixin
+
+	---
+	Example usage
+
+	@include add-breakpoint($name, $lower $upper);
+	---
+
+	@param $name:   The name of the breakpoint, eg. phone
+	@param $lower:  The minimum value of the breakpoint
+	@param $upper:  The maximum value of the breakpoint
+*/
+
+$breakpoints: () !default;
+
+@mixin add-breakpoint($name, $dimensions) {
+	// Get the nth term in the list of dimensions
+	$lower: nth($dimensions, 1);
+	$upper: nth($dimensions, 2);
+	// Add the new breakpoint to the list
+	$breakpoints: append($breakpoints,  ($name,  ($lower, $upper))) !global;
+}
+
+/*
+	Return a given breakpoint
+
+	---
+	Example usage
+
+	$breakpoint: get-breakpoint($name);
+	---
+
+	@param $name:   The name of the breakpoint, eg. phone
+*/
+
+@function get-breakpoint($name) {
+	@each $breakpoint in $breakpoints {
+		@if $name == nth($breakpoint, 1) {
+			@return $breakpoint;
+		}
+	}
+	@return false;
+}
+
+/*
+	Use breakpoint
+
+	---
+	Example usage
+
+	body {
+		@include breakpoint($name, $direction) {
+			background: red;
+		}
+	}
+	---
+
+	@param $name:                  The name of the breakpoint, eg. phone. Must match existing breakpoint created using add-breakpoint()
+	@optional-param $direction:    The direction of the breakpoint, eg. phone and up. False if not passed
+
+	@options $direction:  no argument: create media-query between given breakpoints dimensions
+												up: create media-query from given breakpoint minimum and up
+												above: create media-query for screen sizes greater from given breakpoint 
+												down: create media-query from given breakpoint maximum and down
+												below: create media-query for screen sizes less from given breakpoint 
+												$breakpoint: create media query between the two given breakpoints
+*/
+
+@mixin breakpoint($breakpoint, $direction) {
+	$min: 0;
+	$max: 0;
+	// Is it a custom breakpoint?
+	@if get-breakpoint($breakpoint) == false {
+		$min: $breakpoint;
+		$max: $breakpoint;
+	} @else {
+		$breakpoint: get-breakpoint($breakpoint);
+		$dimensions: nth($breakpoint, 2);
+		$min: nth($dimensions, 1);
+		$max: nth($dimensions, 2);
+	}
+
+	@if $direction == 'up' {
+		@media (min-width: $min) {
+			@content;
+		}
+	} @else if $direction == 'above' {
+		@media (min-width: $max + 1px) {
+			@content;
+		}
+	} @else if ($direction == 'down') {
+		@media (max-width: $max) {
+			@content;
+		}
+	} @else if ($direction == 'below') {
+		@media (max-width: $min - 1px) {
+			@content;
+		}
+	} @else {
+		@if $min != $max {
+			@media (min-width: $min) and (max-width: $max) {
+				@content;
+			}
+		} @else {
+			@media (min-width: $min) {
+				@content;
+			}
+		}
+	}
+}

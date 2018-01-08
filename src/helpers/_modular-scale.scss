@@ -1,0 +1,11 @@
+@function modular-scale($scale, $amount, $size: $font-size) {
+	@if ($amount > 0) {
+		$size: $size * poly-pow($scale, $amount);
+	}
+
+	@if ($amount < 0) {
+		$size: $size / poly-pow($scale, $amount * -1);
+	}
+
+	@return $size;
+}

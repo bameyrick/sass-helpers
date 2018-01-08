@@ -1,0 +1,9 @@
+@mixin row {
+	@include clearfix;
+
+	@include fluid-property(margin, $col-spacing-small / -2, $col-spacing-large / -2, $col-clip-low, $col-clip-high);
+
+	&--narrow {
+		@include fluid-property(margin, $col-spacing-small-narrow / -2, $col-spacing-large-narrow / -2, $col-clip-low, $col-clip-high);
+	}
+}

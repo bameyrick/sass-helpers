@@ -1,0 +1,3 @@
+@mixin fluid-font-size($low-multiplier, $high-multiplier: $low-multiplier, $modular-scale-small: $modular-scale-small, $modular-scale-large: $modular-scale-large) {
+	@include fluid-property(font-size, modular-scale($modular-scale-small, $low-multiplier), modular-scale($modular-scale-large, $high-multiplier), px-to-rem($default-fluid-property-clip-low), px-to-rem($default-fluid-property-clip-high));
+}

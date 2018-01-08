@@ -1,0 +1,46 @@
+@mixin col($narrow: false) {
+	$spacing-small: $col-spacing-small;
+	$spacing-large: $col-spacing-large;
+
+	@if $narrow {
+		$spacing-small: $col-spacing-small-narrow;
+		$spacing-large: $col-spacing-large-narrow;
+	}
+
+	@include fluid-property(padding, $spacing-small / 2, $spacing-large / 2);
+
+	@for $i from 1 through length($col-sizes) {
+		$size: nth($col-sizes, $i);
+		$breakpoint: nth($col-breakpoints, $i);
+
+		@include breakpoint($breakpoint, up) {
+			&-#{$size} {
+				@for $c from 1 through $grid-cols {
+					&-#{$c} {
+						@if $i == 1 {
+							@include fluid-property(padding, $spacing-small / 2, $spacing-large / 2, $col-clip-low, $col-clip-high, true, true, false);
+						} @else {
+							@if ($breakpoint >= $col-clip-high) {
+								padding: $spacing-large / 2;
+							} @else {
+								@include fluid-property(padding, $spacing-small / 2, $spacing-large / 2, $col-clip-low, $col-clip-high, true, false, true);
+							}
+						}
+
+						position: relative;
+						float: left;
+						width: (100% / $grid-cols) * $c;
+					}
+
+					&-push-#{$c} {
+						left: (100% / $grid-cols) * $c;
+					}
+
+					&-pull-#{$c} {
+						right: (100% / $grid-cols) * $c;
+					}
+				}
+			}
+		}
+	}
+}

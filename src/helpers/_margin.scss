@@ -1,0 +1,62 @@
+@mixin margin-top($small: $collapse-padding-small, $large, $narrow: $collapse-padding-large, $vertical: true, $narrow: false) {
+	$divider: 1;
+
+	@if $narrow {
+		$divider: 2;
+	}
+
+	@if $vertical {
+		@include fluid-property-vertical(margin-top, ($small / $divider), ($large / $divider));
+	} @else {
+		@include fluid-property(margin-top, ($small / $divider), ($large / $divider));
+	}
+}
+
+@mixin margin-bottom($small: $collapse-padding-small, $large: $collapse-padding-large, $vertical: true, $narrow: false) {
+	$divider: 1;
+
+	@if $narrow {
+		$divider: 2;
+	}
+
+	@if $vertical {
+		@include fluid-property-vertical(margin-bottom, ($small / $divider), ($large / $divider));
+	} @else {
+		@include fluid-property(margin-bottom, ($small / $divider), ($large / $divider));
+	}
+}
+
+@mixin margin-left($small: $collapse-padding-small, $large: $collapse-padding-large, $narrow: false) {
+	$divider: 1;
+
+	@if $narrow {
+		$divider: 2;
+	}
+
+	@include fluid-property(margin-left, ($small / $divider), ($large / $divider));
+}
+
+@mixin margin-right($small: $collapse-padding-small, $large: $collapse-padding-large, $narrow: false) {
+	$divider: 1;
+
+	@if $narrow {
+		$divider: 2;
+	}
+
+	@include fluid-property(margin-right, ($small / $divider), ($large / $divider));
+}
+
+@mixin margin-vertical($small: $collapse-padding-small, $large: $collapse-padding-large, $vertical: true, $narrow: false) {
+	@include margin-top($small, $large, $vertical, $narrow);
+	@include margin-bottom($small, $large, $vertical, $narrow);
+}
+
+@mixin margin-horizontal($small: $collapse-padding-small, $large: $collapse-padding-large, $narrow: false) {
+	@include margin-left($small, $large, $narrow);
+	@include margin-right($small, $large, $narrow);
+}
+
+@mixin margin($small: $collapse-padding-small, $large: $collapse-padding-large, $vertical: true, $narrow: false) {
+	@include margin-horizontal($small, $large, $vertical, $narrow);
+	@include margin-vertical($small, $large, $vertical, $narrow);
+}

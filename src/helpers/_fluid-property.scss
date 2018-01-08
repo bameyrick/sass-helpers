@@ -1,0 +1,72 @@
+/*
+	Props:
+	$property: Any CSS that accepts calc(), viewport units and pixels, ie. Most properties… height/width/padding/font-size etc.
+	$min: The minimum size.
+	$max: The maximum size.
+	$clip-low: $min will be used at any resolution lower than this.
+	$clip-high: $max value will be used at any resolution higher than this.
+	$clip: When set to false, this disables clipping with the $clip-low and $clip-high properties.
+	$clip-at-start: When set to false, this disables clipping with the $clip-low property.
+	$clip-at-end: When set to false, this disables clipping with the $clip-high property.
+*/
+
+@mixin fluid-property($property, $min, $max, $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high, $clip: true, $clip-at-start: true, $clip-at-end: true, $viewport-direction: 'horizontal') {
+	@if ($min != $max) {
+		$v-direction: 100vw;
+		$min-direction: min-width;
+		$max-direction: max-width;
+
+		@if ($viewport-direction == 'vertical') {
+			$v-direction: 100vh;
+			$min-direction: min-height;
+			$max-direction: max-height;
+		}
+
+		@if (units-match($min, $max, $clip-low, $clip-high)) {
+			$min-no-unit: remove-unit($min);
+			$max-no-unit: remove-unit($max);
+
+			$clip-low-no-unit: remove-unit($clip-low);
+			$clip-high-no-unit: remove-unit($clip-high);
+
+			$formula: calc(
+				#{$min} + #{$max-no-unit - $min-no-unit} * ((#{$v-direction} - #{$clip-low}) / #{$clip-high-no-unit - $clip-low-no-unit})
+			);
+
+			@if $clip and $clip-at-start {
+				@media (#{$max-direction}: #{$clip-low}) {
+					#{$property}: $min;
+				}
+			}
+
+			@if $clip and $clip-at-end {
+				@media (#{$min-direction}: #{$clip-high}) {
+					#{$property}: $max;
+				}
+			}
+
+			#{$property}: $formula;
+		}
+	} @else {
+		#{$property}: $min;
+	}
+}
+
+@mixin fluid-property-vertical($property, $min, $max, $clip-low: $default-fluid-property-clip-low-vertical, $clip-high: $default-fluid-property-clip-high-vertical, $clip: true, $clip-at-start: true, $clip-at-end: true) {
+	@include fluid-property($property, $min, $max, $clip-low, $clip-high, $clip, $clip-at-start, $clip-at-end, 'vertical');
+}
+
+@function units-match($min, $max, $clip-low, $clip-high) {
+	$min-unit: get-unit($min);
+	$max-unit: get-unit($max);
+	$clip-low-unit: get-unit($clip-low);
+	$clip-high-unit: get-unit($clip-high);
+
+	$match: ($min-unit == $max-unit) and ($clip-low-unit == $clip-high-unit) and ($min-unit == $clip-low-unit);
+
+	@if ($match == false) {
+		@error 'All variabels (min, max, viewport-min, and viewport-max) must have the same unit. Supplied variables were:' $min $max $clip-low $clip-high;
+	}
+
+	@return $match;
+}

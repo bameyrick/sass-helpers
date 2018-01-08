@@ -1,0 +1,10 @@
+@function get-unit($measurement) {
+	@for $i from 0 through 9 {
+		$measurement: str-replace($measurement, to-string($i));
+	}
+
+	$measurement: str-replace($measurement, '.');
+	$measurement: str-replace($measurement, '-');
+
+	@return $measurement;
+}

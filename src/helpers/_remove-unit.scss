@@ -1,0 +1,17 @@
+@function remove-unit($measurement) {
+	$measurement: str-replace($measurement, 'px');
+	$measurement: str-replace($measurement, 'rem');
+	$measurement: str-replace($measurement, 'em');
+	$measurement: str-replace($measurement, 'vw');
+	$measurement: str-replace($measurement, 'vh');
+	$measurement: str-replace($measurement, '%');
+	$measurement: str-replace($measurement, 'vmin');
+	$measurement: str-replace($measurement, 'vmax');
+	$measurement: str-replace($measurement, 'cm');
+	$measurement: str-replace($measurement, 'mm');
+	$measurement: str-replace($measurement, 'in');
+	$measurement: str-replace($measurement, 'pt');
+	$measurement: str-replace($measurement, 'pc');
+
+	@return to-number($measurement);
+}

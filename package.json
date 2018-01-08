@@ -1,0 +1,25 @@
+{
+	"name": "sass-helpers",
+	"version": "1.0.0",
+	"main": "index.js",
+	"author": "Ben Meyrick <bameyrick@gmail.com>",
+	"license": "MIT",
+	"scripts": {
+		"lint-staged": "lint-staged",
+		"precommit": "lint-staged"
+	},
+	"lint-staged": {
+		"*.scss": ["prettier --print-width 140 --use-tabs --single-quote --parser postcss --write", "git add"],
+		"*.json": ["prettier --print-width 140 --use-tabs --single-quote --trailing-comma es5 --parser json --write", "git add"]
+	},
+	"devDependencies": {
+		"husky": "^0.14.3",
+		"lint-staged": "^6.0.0",
+		"prettier": "^1.9.2",
+		"sass-lint": "^1.12.1"
+	},
+	"dependencies": {
+		"SassyCast": "https://github.com/hugogiraudel/sassycast.git",
+		"sass-math-pow": "^0.1.4"
+	}
+}
