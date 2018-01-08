@@ -3,8 +3,8 @@
 	"version": "1.0.0",
 	"main": "index.js",
 	"author": "Ben Meyrick <bameyrick@gmail.com>",
-  "license": "MIT",
-  "style": "./src/_index.scss",
+	"license": "MIT",
+	"style": "./src/_index.scss",
 	"scripts": {
 		"lint-staged": "lint-staged",
 		"precommit": "lint-staged"
@@ -20,7 +20,6 @@
 		"sass-lint": "^1.12.1"
 	},
 	"dependencies": {
-		"SassyCast": "https://github.com/hugogiraudel/sassycast.git",
-		"sass-math-pow": "^0.1.4"
+		"SassyCast": "https://github.com/bameyrick/SassyCast.git"
 	}
 }
