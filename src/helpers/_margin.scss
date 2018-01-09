@@ -1,4 +1,4 @@
-@mixin margin-top($small: $collapse-padding-small, $large, $narrow: $collapse-padding-large, $vertical: true, $narrow: false) {
+@mixin margin-top($small: $collapse-padding-small, $large: $collapse-padding-large, $vertical: true, $narrow: false) {
 	$divider: 1;
 
 	@if $narrow {
