@@ -26,6 +26,7 @@ $modular-scale-large: $perfect-fourth !default;
 $base-font-size: 16px !default;
 // This must be a rem unit
 $font-size: 1rem !default;
+$output-fonts-px: false !default;
 
 /*  ---------------------------------------------------
     Layout
@@ -47,9 +48,10 @@ $col-spacing-small-narrow: 5px !default;
 $col-sm-start: $tablet !default;
 $col-md-start: $tablet-landscape !default;
 $col-lg-start: $desktop !default;
+$col-xl-start: $desktop-large !default;
 
 $col-clip-low: $default-fluid-property-clip-low !default;
 $col-clip-high: $col-md-start !default;
 
-$col-sizes: 'xs', 'sm', 'md', 'lg';
-$col-breakpoints: '0px', $col-sm-start, $col-md-start, $col-lg-start;
+$col-sizes: 'xs', 'sm', 'md', 'lg', 'xl';
+$col-breakpoints: '0px', $col-sm-start, $col-md-start, $col-lg-start, $col-xl-start;

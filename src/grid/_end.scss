@@ -1,0 +1,12 @@
+.start {
+	@for $i from 1 through length($col-sizes) {
+		$breakpoint: nth($col-breakpoints, $i);
+
+		&-#{$size} {
+			@include breakpoint($breakpoint, up) {
+				justify-content: flex-end;
+  			text-align: end;
+			}
+		}
+	}
+}

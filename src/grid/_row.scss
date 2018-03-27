@@ -1,9 +1,12 @@
-@mixin row {
-	@include clearfix;
+.row {
+	@include margin-horizontal($col-spacing-small / -2, $col-spacing-large / -2, $col-clip-low, $col-clip-high);
 
-	@include fluid-property(margin, $col-spacing-small / -2, $col-spacing-large / -2, $col-clip-low, $col-clip-high);
+	display: flex;
+	flex: 0 1 auto;
+	flex-direction: row;
+	flex-wrap: wrap;
 
-	&--narrow {
-		@include fluid-property(margin, $col-spacing-small-narrow / -2, $col-spacing-large-narrow / -2, $col-clip-low, $col-clip-high);
+	&.reverse {
+		flex-direction: row-reverse;
 	}
 }

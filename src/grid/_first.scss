@@ -1,0 +1,11 @@
+.first {
+	@for $i from 1 through length($col-sizes) {
+		$breakpoint: nth($col-breakpoints, $i);
+
+		&-#{$size} {
+			@include breakpoint($breakpoint, up) {
+				order: -1;
+			}
+		}
+	}
+}

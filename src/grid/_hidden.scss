@@ -1,0 +1,23 @@
+.hidden {
+	@for $i from 1 through length($col-sizes) {
+		$breakpoint: nth($col-breakpoints, $i);
+		$next-breakpoint: nth($col-breakpoints, $i + 1) - 1;
+
+		&-#{$size} {
+			@if $i == 1 {
+				@media all and (max-width: $next-breakpoint) {
+					display: none;
+				}
+			}
+			@else if $i < length($col-sizes) {
+				@media all and (min-width: $breakpoint) and (max-width: $next-breakpoint) {
+					display: none;
+				}
+			} @else {
+				@include breakpoint($breakpoint, up) {
+					display: none;
+				}
+			}
+		}
+	}
+}
