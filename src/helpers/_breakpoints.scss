@@ -82,8 +82,12 @@ $breakpoints: () !default;
 	}
 
 	@if $direction == 'up' {
-		@media (min-width: $min) {
+		@if $min == 0 {
 			@content;
+		} @else {
+			@media (min-width: $min) {
+				@content;
+			}
 		}
 	} @else if $direction == 'above' {
 		@media (min-width: $max + 1px) {
