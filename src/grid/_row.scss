@@ -1,5 +1,5 @@
 .row {
-	@include margin-horizontal($col-spacing-small / -2, $col-spacing-large / -2, $col-clip-low, $col-clip-high);
+	@include margin-horizontal($col-spacing-small / -2, $col-spacing-large / -2, $clip-low: $col-clip-low, $clip-high: $col-clip-high);
 
 	display: flex;
 	flex: 0 1 auto;
