@@ -7,14 +7,14 @@
 			@if $i == 1 {
 				$next-breakpoint: nth($col-breakpoints, $i + 1) - 1;
 
-				@media all and (max-width: $next-breakpoint) {
+				@media (max-width: $next-breakpoint) {
 					display: none;
 				}
 			}
 			@else if $i < length($col-sizes) {
 				$next-breakpoint: nth($col-breakpoints, $i + 1) - 1;
 
-				@media all and (min-width: $breakpoint) and (max-width: $next-breakpoint) {
+				@media (min-width: $breakpoint) and (max-width: $next-breakpoint) {
 					display: none;
 				}
 			} @else {
