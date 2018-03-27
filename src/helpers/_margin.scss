@@ -1,4 +1,4 @@
-@mixin margin-top($small: $collapse-padding-small, $large: $collapse-padding-large, $vertical: true, $narrow: false, $clip-low, $clip-high) {
+@mixin margin-top($small: $collapse-padding-small, $large: $collapse-padding-large, $vertical: true, $narrow: false, $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high) {
 	$divider: 1;
 
 	@if $narrow {
@@ -6,13 +6,13 @@
 	}
 
 	@if $vertical {
-		@include fluid-property-vertical(margin-top, ($small / $divider), ($large / $divider), $clip-low, $clip-high);
+		@include fluid-property-vertical(margin-top, ($small / $divider), ($large / $divider), $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high);
 	} @else {
-		@include fluid-property(margin-top, ($small / $divider), ($large / $divider), $clip-low, $clip-high);
+		@include fluid-property(margin-top, ($small / $divider), ($large / $divider), $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high);
 	}
 }
 
-@mixin margin-bottom($small: $collapse-padding-small, $large: $collapse-padding-large, $vertical: true, $narrow: false, $clip-low, $clip-high) {
+@mixin margin-bottom($small: $collapse-padding-small, $large: $collapse-padding-large, $vertical: true, $narrow: false, $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high) {
 	$divider: 1;
 
 	@if $narrow {
@@ -20,43 +20,43 @@
 	}
 
 	@if $vertical {
-		@include fluid-property-vertical(margin-bottom, ($small / $divider), ($large / $divider), $clip-low, $clip-high);
+		@include fluid-property-vertical(margin-bottom, ($small / $divider), ($large / $divider), $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high);
 	} @else {
-		@include fluid-property(margin-bottom, ($small / $divider), ($large / $divider), $clip-low, $clip-high);
+		@include fluid-property(margin-bottom, ($small / $divider), ($large / $divider), $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high);
 	}
 }
 
-@mixin margin-left($small: $collapse-padding-small, $large: $collapse-padding-large, $narrow: false, $clip-low, $clip-high) {
+@mixin margin-left($small: $collapse-padding-small, $large: $collapse-padding-large, $narrow: false, $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high) {
 	$divider: 1;
 
 	@if $narrow {
 		$divider: 2;
 	}
 
-	@include fluid-property(margin-left, ($small / $divider), ($large / $divider), $clip-low, $clip-high);
+	@include fluid-property(margin-left, ($small / $divider), ($large / $divider), $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high);
 }
 
-@mixin margin-right($small: $collapse-padding-small, $large: $collapse-padding-large, $narrow: false, $clip-low, $clip-high) {
+@mixin margin-right($small: $collapse-padding-small, $large: $collapse-padding-large, $narrow: false, $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high) {
 	$divider: 1;
 
 	@if $narrow {
 		$divider: 2;
 	}
 
-	@include fluid-property(margin-right, ($small / $divider), ($large / $divider), $clip-low, $clip-high);
+	@include fluid-property(margin-right, ($small / $divider), ($large / $divider), $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high);
 }
 
-@mixin margin-vertical($small: $collapse-padding-small, $large: $collapse-padding-large, $vertical: true, $narrow: false, $clip-low, $clip-high) {
-	@include margin-top($small, $large, $vertical, $narrow, $clip-low, $clip-high);
-	@include margin-bottom($small, $large, $vertical, $narrow, $clip-low, $clip-high);
+@mixin margin-vertical($small: $collapse-padding-small, $large: $collapse-padding-large, $vertical: true, $narrow: false, $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high) {
+	@include margin-top($small, $large, $vertical, $narrow, $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high);
+	@include margin-bottom($small, $large, $vertical, $narrow, $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high);
 }
 
-@mixin margin-horizontal($small: $collapse-padding-small, $large: $collapse-padding-large, $narrow: false, $clip-low, $clip-high) {
-	@include margin-left($small, $large, $narrow, $clip-low, $clip-high);
-	@include margin-right($small, $large, $narrow, $clip-low, $clip-high);
+@mixin margin-horizontal($small: $collapse-padding-small, $large: $collapse-padding-large, $narrow: false, $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high) {
+	@include margin-left($small, $large, $narrow, $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high);
+	@include margin-right($small, $large, $narrow, $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high);
 }
 
-@mixin margin($small: $collapse-padding-small, $large: $collapse-padding-large, $vertical: true, $narrow: false, $clip-low, $clip-high) {
-	@include margin-horizontal($small, $large, $vertical, $narrow, $clip-low, $clip-high);
-	@include margin-vertical($small, $large, $vertical, $narrow, $clip-low, $clip-high);
+@mixin margin($small: $collapse-padding-small, $large: $collapse-padding-large, $vertical: true, $narrow: false, $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high) {
+	@include margin-horizontal($small, $large, $vertical, $narrow, $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high);
+	@include margin-vertical($small, $large, $vertical, $narrow, $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high);
 }
