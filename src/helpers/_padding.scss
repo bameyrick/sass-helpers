@@ -47,7 +47,7 @@
 }
 
 @mixin padding-vertical($small: $collapse-padding-small, $large: $collapse-padding-large, $vertical: true, $narrow: false, $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high) {
-	@include padding-top($small, $large, $narrow, $clip-low, $clip-high);
+	@include padding-top($small, $large, $vertical, $narrow, $clip-low, $clip-high);
 	@include padding-bottom($small, $large, $vertical, $narrow, $clip-low, $clip-high);
 }
 
