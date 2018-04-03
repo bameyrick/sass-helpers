@@ -47,7 +47,7 @@
 }
 
 @mixin margin-vertical($small: $collapse-padding-small, $large: $collapse-padding-large, $vertical: true, $narrow: false, $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high) {
-	@include margin-top($small, $large, $vertical, $narrow, $clip-low, $clip-high);
+	@include margin-top($small, $large, $narrow, $clip-low, $clip-high);
 	@include margin-bottom($small, $large, $vertical, $narrow, $clip-low, $clip-high);
 }
 
@@ -57,6 +57,6 @@
 }
 
 @mixin margin($small: $collapse-padding-small, $large: $collapse-padding-large, $vertical: true, $narrow: false, $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high) {
-	@include margin-horizontal($small, $large, $vertical, $narrow, $clip-low, $clip-high);
+	@include margin-horizontal($small, $large, $narrow, $clip-low, $clip-high);
 	@include margin-vertical($small, $large, $vertical, $narrow, $clip-low, $clip-high);
 }
