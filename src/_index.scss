@@ -2,7 +2,7 @@
     Vendor
 ------------------------------------------------------- */
 
-@import '../node_modules/SassyCast/dist/_SassyCast';
+@import 'SassyCast';
 
 /*  ---------------------------------------------------
     Settings
@@ -57,4 +57,3 @@
 @import 'grid/last';
 @import 'grid/initial-order';
 @import 'grid/hidden';
-
