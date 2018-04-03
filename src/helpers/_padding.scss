@@ -6,9 +6,9 @@
 	}
 
 	@if $vertical {
-		@include fluid-property-vertical(padding-top, ($small / $divider), ($large / $divider), $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high);
+		@include fluid-property-vertical(padding-top, ($small / $divider), ($large / $divider), $clip-low, $clip-high);
 	} @else {
-		@include fluid-property(padding-top, ($small / $divider), ($large / $divider), $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high);
+		@include fluid-property(padding-top, ($small / $divider), ($large / $divider), $clip-low, $clip-high);
 	}
 }
 
@@ -20,9 +20,9 @@
 	}
 
 	@if $vertical {
-		@include fluid-property-vertical(padding-bottom, ($small / $divider), ($large / $divider), $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high);
+		@include fluid-property-vertical(padding-bottom, ($small / $divider), ($large / $divider), $clip-low, $clip-high);
 	} @else {
-		@include fluid-property(padding-bottom, ($small / $divider), ($large / $divider), $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high);
+		@include fluid-property(padding-bottom, ($small / $divider), ($large / $divider), $clip-low, $clip-high);
 	}
 }
 
@@ -33,7 +33,7 @@
 		$divider: 2;
 	}
 
-	@include fluid-property(padding-left, ($small / $divider), ($large / $divider), $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high);
+	@include fluid-property(padding-left, ($small / $divider), ($large / $divider), $clip-low, $clip-high);
 }
 
 @mixin padding-right($small: $collapse-padding-small, $large: $collapse-padding-large, $narrow: false, $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high) {
@@ -43,20 +43,20 @@
 		$divider: 2;
 	}
 
-	@include fluid-property(padding-right, ($small / $divider), ($large / $divider), $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high);
+	@include fluid-property(padding-right, ($small / $divider), ($large / $divider), $clip-low, $clip-high);
 }
 
 @mixin padding-vertical($small: $collapse-padding-small, $large: $collapse-padding-large, $vertical: true, $narrow: false, $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high) {
-	@include padding-top($small, $large, $vertical, $narrow, $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high);
-	@include padding-bottom($small, $large, $vertical, $narrow, $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high);
+	@include padding-top($small, $large, $vertical, $narrow, $clip-low, $clip-high);
+	@include padding-bottom($small, $large, $vertical, $narrow, $clip-low, $clip-high);
 }
 
 @mixin padding-horizontal($small: $collapse-padding-small, $large: $collapse-padding-large, $narrow: false, $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high) {
-	@include padding-left($small, $large, $narrow, $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high);
-	@include padding-right($small, $large, $narrow, $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high);
+	@include padding-left($small, $large, $narrow, $clip-low, $clip-high);
+	@include padding-right($small, $large, $narrow, $clip-low, $clip-high);
 }
 
 @mixin padding($small: $collapse-padding-small, $large: $collapse-padding-large, $vertical: true, $narrow: false, $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high) {
-	@include padding-horizontal($small, $large, $vertical, $narrow, $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high);
-	@include padding-vertical($small, $large, $vertical, $narrow, $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high);
+	@include padding-horizontal($small, $large, $vertical, $narrow, $clip-low, $clip-high);
+	@include padding-vertical($small, $large, $vertical, $narrow, $clip-low, $clip-high);
 }
