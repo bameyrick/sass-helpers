@@ -48,7 +48,7 @@
 	@return $result;
 }
 @function math-exp($value) {
-	$result: math-summation(get-function('math-exp-maclaurin'), $value, 0, 100);
+	$result: math-summation(math-exp-maclaurin, $value, 0, 100);
 	@return $result;
 }
 
@@ -67,7 +67,7 @@
 
 	$value: $value / math-pow(10, $ten-exp);
 
-	$result: math-summation(get-function('math-ln-maclaurin'), $value, 1, 100);
+	$result: math-summation(math-ln-maclaurin, $value, 1, 100);
 
 	@return $result + $ten-exp * $ln-ten;
 }
