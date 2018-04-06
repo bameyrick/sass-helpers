@@ -16,10 +16,10 @@
     Helpers
 ------------------------------------------------------- */
 
+@import 'helpers/remove-unit';
 @import 'helpers/breakpoints';
 @import 'helpers/str-replace';
 @import 'helpers/math-pow';
-@import 'helpers/remove-unit';
 @import 'helpers/get-unit';
 @import 'helpers/px-to-rem';
 @import 'helpers/rem-to-px';
