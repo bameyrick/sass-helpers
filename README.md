@@ -3,11 +3,9 @@
 
 A library of helpers and mixins for helping with building responsive stylesheets.
 
-## Helpers
-
-### Breakpoints
+## Breakpoints
 ---
-#### add-breakpoint
+### add-breakpoint
 Defines a breakpoint to be called using the breakpoint mixin at a later point.
 
 | Argument    | Type   | Optional | Example        |
@@ -15,7 +13,7 @@ Defines a breakpoint to be called using the breakpoint mixin at a later point.
 | $name       | string | false    | `mobile`       |
 | $dimensions | string | false    | `768px 1024px` |
 
-##### Usage
+#### Usage
 ```scss
 $mobile: 420px;
 $tablet: 768px;
@@ -31,7 +29,7 @@ $desktop-large: 1560px;
 @include add-breakpoint('desktop-large', $desktop-large 99999px);
 ```
 ---
-#### breakpoint
+### breakpoint
 Generates a breakpoint and wraps your rule declaration or properties with it.
 
 | Argument   | Type   | Optional | Example |
@@ -39,7 +37,7 @@ Generates a breakpoint and wraps your rule declaration or properties with it.
 | $name      | string | false    | `mobile`|
 | $direction | string | false    | `up`    |
 
-##### Usage
+#### Usage
 ```scss
 @include breakpoint(tablet, down) {
   .cls {
@@ -64,7 +62,7 @@ Generates a breakpoint and wraps your rule declaration or properties with it.
 }
 ```
 
-###### will render:
+##### will render:
 ```css
 @media (max-width: 1023px) {
   .cls {
@@ -92,11 +90,11 @@ Generates a breakpoint and wraps your rule declaration or properties with it.
 ```
 ---
 
-### Fluid Properties
+## Fluid Properties
 These helpers will output calculations and clamping breakpoints to blend a CSS property between two defined points, and two clamping positions.
 
 ---
-#### fluid-property
+### fluid-property
 
 | Argument            | Type    | Optional | Default      | Example      |
 | ------------------- | ------- | -------- | ------------ | ------------ |
@@ -110,7 +108,7 @@ These helpers will output calculations and clamping breakpoints to blend a CSS p
 | $clip-at-end        | boolean | true     | `true`       | `true`       |
 | $viewport-direction | string  | true     | `horizontal` | `vertical`   |
 
-##### Usage
+#### Usage
 ```scss
 .cls {
   @include fluid-property(margin-top, 10px, 20px);
@@ -118,11 +116,11 @@ These helpers will output calculations and clamping breakpoints to blend a CSS p
 }
 ```
 
-###### will render:
+##### will render:
 ```css
 .cls {
   margin-top: calc(10px + 10 * ((100vw - 420px) / 946));
-  padding-bottom: calc( 5px + 15 * ((100vh - 420px) / 380));
+  padding-bottom: calc(5px + 15 * ((100vh - 420px) / 380));
 }
 
 @media (max-width: 420px) {
