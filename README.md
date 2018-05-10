@@ -1,4 +1,5 @@
 # sass-helpers
+**WIP**
 
 A library of helpers and mixins for helping with building responsive stylesheets.
 
@@ -113,7 +114,7 @@ These helpers will output calculations and clamping breakpoints to blend a CSS p
 ```scss
 .cls {
   @include fluid-property(margin-top, 10px, 20px);
-  @include fluid-property(padding-bottom, 5px, 20px, $clip-at-start: false, $viewport-direction: 'vertical');
+  @include fluid-property(padding-bottom, 5px, 20px, $clip-high: 800px, $clip-at-start: false, $viewport-direction: 'vertical');
 }
 ```
 
@@ -121,7 +122,7 @@ These helpers will output calculations and clamping breakpoints to blend a CSS p
 ```css
 .cls {
   margin-top: calc(10px + 10 * ((100vw - 420px) / 946));
-  padding-bottom: calc(5px + 15 * ((100vh - 420px) / 946));
+  padding-bottom: calc( 5px + 15 * ((100vh - 420px) / 380));
 }
 
 @media (max-width: 420px) {
@@ -136,7 +137,7 @@ These helpers will output calculations and clamping breakpoints to blend a CSS p
   }
 }
 
-@media (min-height: 1366px) {
+@media (min-height: 800px) {
   .cls {
     padding-bottom: 20px; 
   } 
