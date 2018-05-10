@@ -4,7 +4,7 @@
 A library of helpers and mixins for helping with building responsive stylesheets.
 
 ## Breakpoints
----
+
 ### add-breakpoint
 Defines a breakpoint to be called using the breakpoint mixin at a later point.
 
@@ -93,7 +93,6 @@ Generates a breakpoint and wraps your rule declaration or properties with it.
 ## Fluid Properties
 These helpers will output calculations and clamping breakpoints to blend a CSS property between two defined points, and two clamping positions.
 
----
 ### fluid-property
 
 | Argument            | Type    | Optional | Default      | Example      |
