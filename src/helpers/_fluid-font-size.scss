@@ -1,4 +1,4 @@
-@mixin fluid-font-size($low-multiplier, $high-multiplier: $low-multiplier, $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high, $modular-scale-small: $modular-scale-small, $modular-scale-large: $modular-scale-large, $output-px: $output-fonts-px) {
+@mixin fluid-font-size($low-multiplier, $high-multiplier: $low-multiplier, $clip-low: $default-fluid-property-clip-low, $clip-high: $default-fluid-property-clip-high, $modular-scale-small: $modular-scale-small, $modular-scale-large: $modular-scale-large, $clip: true, $clip-at-start: true, $clip-at-end: true, $output-px: $output-fonts-px) {
 	$size-small: modular-scale($modular-scale-small, $low-multiplier);
 	$size-large: modular-scale($modular-scale-large, $high-multiplier);
 
@@ -10,5 +10,5 @@
 		$clip-high: px-to-rem($clip-high);
 	}
 
-	@include fluid-property(font-size, $size-small, $size-large ,$clip-low, $clip-high);
+	@include fluid-property(font-size, $size-small, $size-large, $clip-low, $clip-high, $clip, $clip-at-start, $clip-at-end);
 }
