@@ -439,3 +439,18 @@ Will remove units from values leaving you with only the number
 $font-size-no-unit: @remove-unit(24px); // => 24
 ```
 ---
+
+## str-replace
+Will replace matches in a string
+
+| Argument | Type    | Optional | Default      | Example |
+| -------- | ------- | -------- | ------------ | ------- |
+| $string  | string  | false    | n/a          | `40rem` |     
+| $search  | string  | false    | n/a          | `rem`   |
+| $replace | string  | true     | Empty string | `px`  |
+
+#### Example
+```scss
+$replaced-string: @str-replace('40rem', 'rem', 'px'); // => 40px;
+```
+---
