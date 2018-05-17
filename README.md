@@ -385,7 +385,6 @@ Will generate [fluid](#fluid-property) paddings.
 ## px-to-rem
 Will convert px values to rem based on your [base font size](#base-font-size)
 
-
 | Argument | Type   | Example |
 | -------- | ------ | ------- |
 | $size    | string | `24px`  |
@@ -409,7 +408,6 @@ Will convert px values to rem based on your [base font size](#base-font-size)
 ## rem-to-px
 Will convert rem values to px based on your [base font size](#base-font-size)
 
-
 | Argument | Type   | Example  |
 | -------- | ------ | -------- |
 | $size    | string | `1.8rem` |
@@ -426,5 +424,18 @@ Will convert rem values to px based on your [base font size](#base-font-size)
 .my-cls {
     font-size: 28.8px;
 }
+```
+---
+
+## remove-unit
+Will remove units from values leaving you with only the number
+
+| Argument     | Type   | Example |
+| ------------ | ------ | ------- |
+| $measurement | string | `24px`  |
+
+#### Example
+```scss
+$font-size-no-unit: @remove-unit(24px); // => 24
 ```
 ---
