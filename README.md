@@ -234,17 +234,17 @@ Will generate [fluid](#fluid-property) margins.
 * margin-right
 * margin-left
 
-| Argument                                                           | Type    | Optional | Default  | Example |
-| ------------------------------------------------------------------ | ------- | -------- | -------- | ------- |
-| $small                                                             | string  | true     | `15px`   | `10px`  |
-| $large                                                             | string  | true     | `30px`   | `20px`  |
-| $vetical (not on margin-horizontal, margin-left, and margin-right) | boolean | true     | `true`   | `false` |
-| $narrow (will half $small and $large)                              | boolean | true     | `false`  | `true`  |
-| $clip-low                                                          | string  | true     | `420px`  | `768px` |
-| $clip-high                                                         | string  | true     | `1366px` | `1024x` |
-| $clip                                                              | boolean | true     | `true`   | `false` |
-| $clip-at-start                                                     | boolean | true     | `true`   | `true`  |
-| $clip-at-end                                                       | boolean | true     | `true`   | `true`  |
+| Argument                                                            | Type    | Optional | Default  | Example |
+| ------------------------------------------------------------------- | ------- | -------- | -------- | ------- |
+| $small                                                              | string  | true     | `15px`   | `10px`  |
+| $large                                                              | string  | true     | `30px`   | `20px`  |
+| $vretical (not on margin-horizontal, margin-left, and margin-right) | boolean | true     | `true`   | `false` |
+| $narrow (will half $small and $large)                               | boolean | true     | `false`  | `true`  |
+| $clip-low                                                           | string  | true     | `420px`  | `768px` |
+| $clip-high                                                          | string  | true     | `1366px` | `1024x` |
+| $clip                                                               | boolean | true     | `true`   | `false` |
+| $clip-at-start                                                      | boolean | true     | `true`   | `true`  |
+| $clip-at-end                                                        | boolean | true     | `true`   | `true`  |
 
 #### Usage
 ```scss
@@ -297,6 +297,86 @@ Will generate [fluid](#fluid-property) margins.
 @media (min-height: 1366px) {
     .my-cls-2 {
       margin-top: 20px;
+    }
+}
+```
+---
+
+## Paddings
+Will generate [fluid](#fluid-property) paddings.
+
+### Available helpers
+* padding
+* padding-horizontal
+* padding-vertical
+* padding-top
+* padding-bottom
+* padding-right
+* padding-left
+
+| Argument                                                               | Type    | Optional | Default  | Example |
+| ---------------------------------------------------------------------- | ------- | -------- | -------- | ------- |
+| $small                                                                 | string  | true     | `15px`   | `10px`  |
+| $large                                                                 | string  | true     | `30px`   | `20px`  |
+| $vretical (not on padding-horizontal, padding-left, and padding-right) | boolean | true     | `true`   | `false` |
+| $narrow (will half $small and $large)                                  | boolean | true     | `false`  | `true`  |
+| $clip-low                                                              | string  | true     | `420px`  | `768px` |
+| $clip-high                                                             | string  | true     | `1366px` | `1024x` |
+| $clip                                                                  | boolean | true     | `true`   | `false` |
+| $clip-at-start                                                         | boolean | true     | `true`   | `true`  |
+| $clip-at-end                                                           | boolean | true     | `true`   | `true`  |
+
+#### Usage
+```scss
+.my-cls {
+  @include padding-horizontal($narrow: true);
+}
+
+.my-cls-2 {
+  @include padding-top(10px, 20px);
+}
+```
+
+##### will render:
+```css
+.my-cls {
+  padding-left: calc(7.5px + 7.5 * ((100vw - 420px) / 946));
+  padding-right: calc(7.5px + 7.5 * ((100vw - 420px) / 946));
+}
+
+.my-cls-2 {
+  padding-top: calc(10px + 10 * ((100vh - 420px) / 946));
+}
+
+@media (min-width: 1366px) {
+    .my-cls {
+      padding-left: 15px;
+    }
+    
+    .my-cls {
+      padding-right: 15px;
+    }
+}
+
+@media (max-width: 420px) {
+    .my-cls {
+      padding-left: 7.5px;
+    }
+    
+    .my-cls {
+      padding-right: 7.5px;
+    }
+}
+
+@media (max-height: 420px) {
+    .my-cls-2 {
+      padding-top: 10px;
+    }
+}
+
+@media (min-height: 1366px) {
+    .my-cls-2 {
+      padding-top: 20px;
     }
 }
 ```
