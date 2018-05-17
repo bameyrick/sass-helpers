@@ -198,6 +198,7 @@ h6 {
 
 [Demo example - resize browser window to see in effect](https://codepen.io/bameyrick/full/EvxoQx/)
 
+---
 ### modular-scale
 The modular scale helper is used by the [fluid-font-size](#fluid-font-size) helper to generate font size based of your base font size, a supplied multiplier, and a modular scale [ratio](#ratios).
 
@@ -206,3 +207,16 @@ The modular scale helper is used by the [fluid-font-size](#fluid-font-size) help
 | $scale   | number  | false    | n/a         | `1.125` |     
 | $amount  | number  | false    | n/a         | `2`     |
 | $size    | string  | true     | 1rem (16px) | `1rem`  |
+
+---
+## get-unit
+Will return the unit for a value
+
+| Argument     | Type   | Example |
+| ------------ | ------ | ------- |
+| $measurement | string | 24px    |
+
+#### Example
+```scss
+$unit: @get-unit(2em); // => em
+```
