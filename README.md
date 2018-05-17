@@ -501,7 +501,7 @@ $collapse-padding-small: 15px !default;
 ---
 
 # Included variables
-There are also some variables available for use ([can be found in the base folder](https://github.com/bameyrick/sass-helpers/tree/master/src/base)).
+There are also some variables available for use ([can be found in the base folder](../master/src/base)).
 
 ## Ratios
 ```scss
