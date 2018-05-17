@@ -140,3 +140,69 @@ These helpers will output calculations and clamping breakpoints to blend a CSS p
   } 
 }
 ```
+---
+
+### fluid-font-size
+Will output fluid font sizes based on a [modular scale](#modular-scale) system, driven by your base font size. This system works by providing an upper and a lower [ratio](#ratios) and a multiplier for your font size.
+
+#### fluid-font-size helper arguments
+
+| Argument             | Type    | Optional | Default           | Example      |
+| -------------------- | ------- | -------- | ----------------- | ------------ |
+| $low-multiplier      | number  | false    | n/a               | `1.5`        |
+| $high-multiplier     | number  | true     | `$low-miltiplier` | `2`          |
+| $clip-low            | string  | true     | `420px`           | `768px`      |
+| $clip-high           | string  | true     | `1366px`          | `1024x`      |
+| $modular-scale-small | number  | true     | `$major-second`   | `1.125`		   |
+| $modular-scale-large | number  | true     | `$perfect-fourth` | `1.333`      |
+| $clip                | boolean | true     | `true`            | `false`      |
+| $clip-at-start       | boolean | true     | `true`            | `true`       |
+| $clip-at-end         | boolean | true     | `true`            | `true`       |
+| $output-px           | boolean | true     | `false`           | `true`       |
+
+
+#### Example
+```scss
+h1 {
+	@include fluid-font-size(4);
+}
+h2 {
+	@include fluid-font-size(3);
+}
+h3 {
+	@include fluid-font-size(2);
+}
+h4 {
+	@include fluid-font-size(1);
+}
+h5 {
+	@include fluid-font-size(0);
+}
+h6 {
+	@include fluid-font-size(-1);
+}
+```
+
+##### will create a fluid property that blends between the two sizes:
+
+(With a base font size of 16px and default modular scale settings (1.125, 1.333)
+
+| Multiplier | Font Size Small          | Font Size Large          |
+| ---------- | ------------------------ | ------------------------ |
+| 0          | 1rem (16px)              | 1rem (16px)              |
+| 1          | 1.125rem (18px)          | 1.333rem (21.3px)        |
+| 2          | 1.265625rem (20.3px)     | 2.368593037rem (28.4px)  |
+| 3          | 1.423828125rem (22.8px)  | 3.1573345183rem (37.9px) |
+| 4          | 1.6018066406rem (25.6px) | 4.2087269129rem (50.5px) |
+| -1         | 0.8888888889rem (14.2px) | 0.8888888889rem (12px)   |
+
+[Demo example - resize browser window to see in effect](https://codepen.io/bameyrick/full/EvxoQx/)
+
+### modular-scale
+The modular scale helper is used by the [fluid-font-size](#fluid-font-size) helper to generate font size based of your base font size, a supplied multiplier, and a modular scale [ratio](#ratios).
+
+| Argument | Type    | Optional | Default     | Example |
+| -------- | ------- | -------- | ----------- | ------- |
+| $scale   | number  | false    | n/a         | `1.125` |     
+| $amount  | number  | false    | n/a         | `2`     |
+| $size    | string  | true     | 1rem (16px) | `1rem`  |
