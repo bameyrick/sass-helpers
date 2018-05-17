@@ -210,13 +210,93 @@ The modular scale helper is used by the [fluid-font-size](#fluid-font-size) help
 
 ---
 ## get-unit
-Will return the unit for a value
+Will return the unit for a value.
 
 | Argument     | Type   | Example |
 | ------------ | ------ | ------- |
-| $measurement | string | 24px    |
+| $measurement | string | `24px`  |
 
 #### Example
 ```scss
 $unit: @get-unit(2em); // => em
+```
+---
+
+## Margins
+Will generate [fluid](#fluid-property) margins.
+
+### Available helpers
+* margin
+* margin-horizontal
+* margin-vertical
+* margin-top
+* margin-bottom
+* margin-right
+* margin-left
+
+| Argument                                                           | Type    | Optional | Default  | Example |
+| ------------------------------------------------------------------ | ------- | -------- | -------- | ------- |
+| $small                                                             | string  | true     | `15px`   | `10px`  |
+| $large                                                             | string  | true     | `30px`   | `20px`  |
+| $vetical (not on margin-horizontal, margin-left, and margin-right) | boolean | true     | `true`   | `false` |
+| $narrow (will half $small and $large)                              | boolean | true     | `false`  | `true`  |
+| $clip-low                                                          | string  | true     | `420px`  | `768px` |
+| $clip-high                                                         | string  | true     | `1366px` | `1024x` |
+| $clip                                                              | boolean | true     | `true`   | `false` |
+| $clip-at-start                                                     | boolean | true     | `true`   | `true`  |
+| $clip-at-end                                                       | boolean | true     | `true`   | `true`  |
+
+#### Usage
+```scss
+.my-cls {
+  @include margin-horizontal($narrow: true);
+}
+
+.my-cls-2 {
+  @include margin-top(10px, 20px);
+}
+```
+
+##### will render:
+```css
+.my-cls {
+  margin-left: calc(7.5px + 7.5 * ((100vw - 420px) / 946));
+  margin-right: calc(7.5px + 7.5 * ((100vw - 420px) / 946));
+}
+
+.my-cls-2 {
+  margin-top: calc(10px + 10 * ((100vh - 420px) / 946));
+}
+
+@media (min-width: 1366px) {
+    .my-cls {
+      margin-left: 15px;
+    }
+    
+    .my-cls {
+      margin-right: 15px;
+    }
+}
+
+@media (max-width: 420px) {
+    .my-cls {
+      margin-left: 7.5px;
+    }
+    
+    .my-cls {
+      margin-right: 7.5px;
+    }
+}
+
+@media (max-height: 420px) {
+    .my-cls-2 {
+      margin-top: 10px;
+    }
+}
+
+@media (min-height: 1366px) {
+    .my-cls-2 {
+      margin-top: 20px;
+    }
+}
 ```
