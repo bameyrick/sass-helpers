@@ -454,3 +454,91 @@ Will replace matches in a string
 $replaced-string: @str-replace('40rem', 'rem', 'px'); // => 40px;
 ```
 ---
+
+# Default Settings
+A lot of the helpers rely on default settings which you can override yourself if you wish.
+
+## Breakpoint defaults
+```scss
+$mobile: 420px !default;
+$tablet: 768px !default;
+$tablet-landscape: 1024px !default;
+$desktop: 1366px !default;
+$desktop-large: 1560px !default;
+```
+
+## Fluid property defaults
+```scss
+$default-fluid-property-clip-low: $mobile !default;
+$default-fluid-property-clip-high: $desktop !default;
+$default-fluid-property-clip-low-vertical: 600px !default;
+$default-fluid-property-clip-high-vertical: 1200px !default;
+```
+
+## Typography defaults
+### Base font size
+```scss
+$base-font-size: 16px !default;
+// This must be a rem unit
+$font-size: 1rem !default;
+```
+
+### Other typography defauls
+```scss
+$modular-scale-small: $major-second !default;
+$modular-scale-large: $perfect-fourth !default;
+$output-fonts-px: false !default;
+```
+
+
+## Padding / margin defaults
+Padding defaults also apply to margins.
+
+```scss
+$collapse-padding-large: 30px !default;
+$collapse-padding-small: 15px !default;
+```
+---
+
+# Included variables
+There are also some variables available for use ([can be found in the base folder](https://github.com/bameyrick/sass-helpers/tree/master/src/base)).
+
+## Ratios
+```scss
+$minor-second: 1.067;
+$major-second: 1.125;
+$minor-third: 1.2;
+$major-third: 1.25;
+$perfect-fourth: 1.333;
+$augmented-fourth: 1.411;
+$perfect-fifth: 1.5;
+$golden-ratio: 1.681;
+```
+
+## Easings
+See http://easings.net/ for visual representations
+```scss
+$ease-in-sine: cubic-bezier(0.47, 0, 0.745, 0.715);
+$ease-out-sine: cubic-bezier(0.39, 0.575, 0.565, 1);
+$ease-in-out-sine: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+$ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+$ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+$ease-in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+$ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+$ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+$ease-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+$ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+$ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
+$ease-in-quint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+$ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
+$ease-in-expo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+$ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+$ease-in-out-expo: cubic-bezier(1, 0, 0, 1);
+$ease-in-circ: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+$ease-out-circ: cubic-bezier(0.075, 0.82, 0.165, 1);
+$ease-in-out-circ: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+$ease-in-back: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+$ease-out-back: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$ease-in-out-back: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+```
