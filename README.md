@@ -143,7 +143,7 @@ These helpers will output calculations and clamping breakpoints to blend a CSS p
 ---
 
 ### fluid-font-size
-Will output fluid font sizes based on a [modular scale](#modular-scale) system, driven by your base font size. This system works by providing an upper and a lower [ratio](#ratios) and a multiplier for your font size.
+Will output fluid font sizes based on a [modular scale](#modular-scale) system, driven by your [base font size](#base-font-size). This system works by providing an upper and a lower [ratio](#ratios) and a multiplier for your font size.
 
 #### fluid-font-size helper arguments
 
@@ -185,7 +185,7 @@ h6 {
 
 ##### will create a fluid property that blends between the two sizes:
 
-(With a base font size of 16px and default modular scale settings (1.125, 1.333)
+(With a [base font size](#base-font-size) of 16px and default modular scale settings (1.125, 1.333)
 
 | Multiplier | Font Size Small          | Font Size Large          |
 | ---------- | ------------------------ | ------------------------ |
@@ -200,7 +200,7 @@ h6 {
 
 ---
 ### modular-scale
-The modular scale helper is used by the [fluid-font-size](#fluid-font-size) helper to generate font size based of your base font size, a supplied multiplier, and a modular scale [ratio](#ratios).
+The modular scale helper is used by the [fluid-font-size](#fluid-font-size) helper to generate font size based of your [base font size](#base-font-size), a supplied multiplier, and a modular scale [ratio](#ratios).
 
 | Argument | Type    | Optional | Default     | Example |
 | -------- | ------- | -------- | ----------- | ------- |
@@ -380,3 +380,51 @@ Will generate [fluid](#fluid-property) paddings.
     }
 }
 ```
+---
+
+## px-to-rem
+Will convert px values to rem based on your [base font size](#base-font-size)
+
+
+| Argument | Type   | Example |
+| -------- | ------ | ------- |
+| $size    | string | `24px`  |
+
+#### Example
+```scss
+.my-cls {
+  font-size: @px-to-rem(24px);
+}
+```
+
+##### will render:
+```css
+.my-cls {
+    font-size: 1.5rem;
+}
+```
+---
+
+
+## rem-to-px
+Will convert rem values to px based on your [base font size](#base-font-size)
+
+
+| Argument | Type   | Example  |
+| -------- | ------ | -------- |
+| $size    | string | `1.8rem` |
+
+#### Example
+```scss
+.my-cls {
+  font-size: @rem-to-px(1.8rem);
+}
+```
+
+##### will render:
+```css
+.my-cls {
+    font-size: 28.8px;
+}
+```
+---
