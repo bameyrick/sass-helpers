@@ -238,7 +238,7 @@ Will generate [fluid](#fluid-property) margins.
 | ------------------------------------------------------------------- | ------- | -------- | -------- | ------- |
 | $small                                                              | string  | true     | `15px`   | `10px`  |
 | $large                                                              | string  | true     | `30px`   | `20px`  |
-| $vretical (not on margin-horizontal, margin-left, and margin-right) | boolean | true     | `true`   | `false` |
+| $vertical (not on margin-horizontal, margin-left, and margin-right) | boolean | false    | `true`   | `false` |
 | $narrow (will half $small and $large)                               | boolean | true     | `false`  | `true`  |
 | $clip-low                                                           | string  | true     | `420px`  | `768px` |
 | $clip-high                                                          | string  | true     | `1366px` | `1024x` |
@@ -253,7 +253,7 @@ Will generate [fluid](#fluid-property) margins.
 }
 
 .my-cls-2 {
-  @include margin-top(10px, 20px);
+  @include margin-top(10px, 20px, $vertical: true);
 }
 ```
 
@@ -318,7 +318,7 @@ Will generate [fluid](#fluid-property) paddings.
 | ---------------------------------------------------------------------- | ------- | -------- | -------- | ------- |
 | $small                                                                 | string  | true     | `15px`   | `10px`  |
 | $large                                                                 | string  | true     | `30px`   | `20px`  |
-| $vretical (not on padding-horizontal, padding-left, and padding-right) | boolean | true     | `true`   | `false` |
+| $vertical (not on padding-horizontal, padding-left, and padding-right) | boolean | false    | `true`   | `false` |
 | $narrow (will half $small and $large)                                  | boolean | true     | `false`  | `true`  |
 | $clip-low                                                              | string  | true     | `420px`  | `768px` |
 | $clip-high                                                             | string  | true     | `1366px` | `1024x` |
@@ -333,7 +333,7 @@ Will generate [fluid](#fluid-property) paddings.
 }
 
 .my-cls-2 {
-  @include padding-top(10px, 20px);
+  @include padding-top(10px, 20px, $vertical: true);
 }
 ```
 
@@ -497,6 +497,8 @@ Padding defaults also apply to margins.
 ```scss
 $collapse-padding-large: 30px !default;
 $collapse-padding-small: 15px !default;
+
+$vertical-padding-margin-based-off-vh: false !default;
 ```
 ---
 
