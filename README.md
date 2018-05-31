@@ -234,17 +234,19 @@ Will generate [fluid](#fluid-property) margins.
 * margin-right
 * margin-left
 
-| Argument                                                            | Type    | Optional | Default  | Example |
-| ------------------------------------------------------------------- | ------- | -------- | -------- | ------- |
-| $small                                                              | string  | true     | `15px`   | `10px`  |
-| $large                                                              | string  | true     | `30px`   | `20px`  |
-| $vertical (not on margin-horizontal, margin-left, and margin-right) | boolean | false    | `true`   | `false` |
-| $narrow (will half $small and $large)                               | boolean | true     | `false`  | `true`  |
-| $clip-low                                                           | string  | true     | `420px`  | `768px` |
-| $clip-high                                                          | string  | true     | `1366px` | `1024x` |
-| $clip                                                               | boolean | true     | `true`   | `false` |
-| $clip-at-start                                                      | boolean | true     | `true`   | `true`  |
-| $clip-at-end                                                        | boolean | true     | `true`   | `true`  |
+| Argument                                                                      | Type    | Optional | Default  | Example |
+| ----------------------------------------------------------------------------- | ------- | -------- | -------- | ------- |
+| $small                                                                        | string  | true     | `15px`   | `10px`  |
+| $large                                                                        | string  | true     | `30px`   | `20px`  |
+| $vertical (not on margin-horizontal, margin-left, and margin-right)           | boolean | false    | `true`   | `false` |
+| $narrow (will half $small and $large)                                         | boolean | true     | `false`  | `true`  |
+| $clip-low                                                                     | string  | true     | `420px`  | `768px` |
+| $clip-high                                                                    | string  | true     | `1366px` | `1024x` |
+| $clip-low-vertical (not on margin-horizontal, margin-left, and margin-right)  | string  | true     | `600px`  | `768px` |
+| $clip-high-vertical (not on margin-horizontal, margin-left, and margin-right) | string  | true     | `1200px` | `1024x` |
+| $clip                                                                         | boolean | true     | `true`   | `false` |
+| $clip-at-start                                                                | boolean | true     | `true`   | `true`  |
+| $clip-at-end                                                                  | boolean | true     | `true`   | `true`  |
 
 #### Usage
 ```scss
@@ -314,17 +316,19 @@ Will generate [fluid](#fluid-property) paddings.
 * padding-right
 * padding-left
 
-| Argument                                                               | Type    | Optional | Default  | Example |
-| ---------------------------------------------------------------------- | ------- | -------- | -------- | ------- |
-| $small                                                                 | string  | true     | `15px`   | `10px`  |
-| $large                                                                 | string  | true     | `30px`   | `20px`  |
-| $vertical (not on padding-horizontal, padding-left, and padding-right) | boolean | false    | `true`   | `false` |
-| $narrow (will half $small and $large)                                  | boolean | true     | `false`  | `true`  |
-| $clip-low                                                              | string  | true     | `420px`  | `768px` |
-| $clip-high                                                             | string  | true     | `1366px` | `1024x` |
-| $clip                                                                  | boolean | true     | `true`   | `false` |
-| $clip-at-start                                                         | boolean | true     | `true`   | `true`  |
-| $clip-at-end                                                           | boolean | true     | `true`   | `true`  |
+| Argument                                                                         | Type    | Optional | Default  | Example |
+| -------------------------------------------------------------------------------- | ------- | -------- | -------- | ------- |
+| $small                                                                           | string  | true     | `15px`   | `10px`  |
+| $large                                                                           | string  | true     | `30px`   | `20px`  |
+| $vertical (not on padding-horizontal, padding-left, and padding-right)           | boolean | false    | `true`   | `false` |
+| $narrow (will half $small and $large)                                            | boolean | true     | `false`  | `true`  |
+| $clip-low                                                                        | string  | true     | `420px`  | `768px` |
+| $clip-high                                                                       | string  | true     | `1366px` | `1024x` |
+| $clip-low-vertical (not on padding-horizontal, padding-left, and padding-right)  | string  | true     | `600px`  | `768px` |
+| $clip-high-vertical (not on padding-horizontal, padding-left, and padding-right) | string  | true     | `1200px` | `1024x` |
+| $clip                                                                            | boolean | true     | `true`   | `false` |
+| $clip-at-start                                                                   | boolean | true     | `true`   | `true`  |
+| $clip-at-end                                                                     | boolean | true     | `true`   | `true`  |
 
 #### Usage
 ```scss
