@@ -1,10 +1,10 @@
 {
 	"name": "sass-helpers",
 	"version": "1.0.0",
-	"main": "index.js",
 	"author": "Ben Meyrick <bameyrick@gmail.com>",
 	"license": "MIT",
-	"style": "./src/_index.scss",
+	"main": "src/_index.scss",
+ 	"style": "src/_index.scss",
 	"scripts": {
 		"lint-staged": "lint-staged",
 		"precommit": "lint-staged"
