@@ -4,7 +4,7 @@
 	"author": "Ben Meyrick <bameyrick@gmail.com>",
 	"license": "MIT",
 	"main": "src/_index.scss",
- 	"style": "src/_index.scss",
+	"style": "src/_index.scss",
 	"scripts": {
 		"lint-staged": "lint-staged",
 		"precommit": "lint-staged"
