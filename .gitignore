@@ -3,3 +3,5 @@
 Thumbs.db
 dist/
 node_modules/
+sassdoc/
+*.tgz

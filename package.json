@@ -1,25 +1,39 @@
 {
-	"name": "sass-helpers",
-	"version": "1.0.0",
-	"author": "Ben Meyrick <bameyrick@gmail.com>",
-	"license": "MIT",
-	"main": "src/_index.scss",
-	"style": "src/_index.scss",
-	"scripts": {
-		"lint-staged": "lint-staged",
-		"precommit": "lint-staged"
-	},
-	"lint-staged": {
-		"*.scss": ["prettier --print-width 140 --use-tabs --single-quote --parser postcss --write", "git add"],
-		"*.json": ["prettier --print-width 140 --use-tabs --single-quote --trailing-comma es5 --parser json --write", "git add"]
-	},
-	"devDependencies": {
-		"husky": "^0.14.3",
-		"lint-staged": "^6.0.0",
-		"prettier": "^1.9.2",
-		"sass-lint": "^1.12.1"
-	},
-	"dependencies": {
-		"SassyCast": "https://github.com/bameyrick/SassyCast.git"
-	}
+  "name": "sass-helpers",
+  "version": "1.0.0",
+  "author": "Ben Meyrick <bameyrick@gmail.com>",
+  "license": "MIT",
+  "main": "src/_index.scss",
+  "style": "src/_index.scss",
+  "scripts": {
+    "build-docs": "find node_modules/mathsass/dist/* -name '*.scss' -exec sed -i '' 's/^\\/\\/ /\\/\\/\\/ /g' {} + && yarn sassdoc node_modules/mathsass/dist/**/* node_modules/sassy-cast/dist src/*",
+    "tidy-clean": "rm -rf ./dist && find . -maxdepth 1  -name '*.tgz' -delete && rm -rf ./sassdoc",
+    "check-package": "yarn build && tar tvf $(npm pack)"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.scss": ["prettier --print-width 140 --single-quote --parser css --write", "git add"],
+    "*.json": ["prettier --print-width 140 --single-quote --trailing-comma es5 --parser json --write", "git add"],
+    "*.md": ["prettier --write", "remark", "git add"]
+  },
+  "devDependencies": {
+    "husky": "^3.0.9",
+    "lint-staged": "^6.0.0",
+    "mocha": "^6.2.2",
+    "prettier": "^1.9.2",
+    "remark-cli": "^7.0.1",
+    "remark-lint": "^6.0.5",
+    "remark-preset-lint-recommended": "^3.0.3",
+    "sass-lint": "^1.12.1",
+    "sass-true": "^5.0.0",
+    "sassdoc": "^2.7.1"
+  },
+  "dependencies": {
+    "mathsass": "^0.11.0",
+    "sassy-cast": "^2.0.3"
+  }
 }
