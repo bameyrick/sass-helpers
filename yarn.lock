@@ -2,10 +2,6 @@
 # yarn lockfile v1
 
 
-"SassyCast@https://github.com/bameyrick/SassyCast.git":
-  version "2.0.2"
-  resolved "https://github.com/bameyrick/SassyCast.git#e055c72bdbb9abfe34946a2460a8a4123f277b1c"
-
 acorn-jsx@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/acorn-jsx/-/acorn-jsx-3.0.1.tgz#afdf9488fb1ecefc8348f6fb22f464e32a58b36b"
@@ -1263,6 +1259,11 @@ sass-lint@^1.12.1:
     merge "^1.2.0"
     path-is-absolute "^1.0.0"
     util "^0.10.3"
+
+sassy-cast@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/sassy-cast/-/sassy-cast-2.0.3.tgz#70f6f05a29567a4e655b16a84afac0f14bb02041"
+  integrity sha512-9imnjbfP2oXbRdYASy4ojCc1N0ndo1c+YSq74Vhll72Bg0ERb7mDFtStA8Qj68JX403nkZueOVY/OyflJYPTqw==
 
 shebang-command@^1.2.0:
   version "1.2.0"
